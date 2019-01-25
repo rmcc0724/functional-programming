@@ -1,3 +1,10 @@
+Functional Programming: Use the filter Method to Extract Data from an Array
+Another useful array function is Array.prototype.filter(), or simply filter(). The filter method returns a new array which is at most as long as the original array, but usually has fewer items.
+
+Filter doesn't alter the original array, just like map. It takes a callback function that applies the logic inside the callback on each element of the array. If an element returns true based on the criteria in the callback function, then it is included in the new array.
+
+The variable watchList holds an array of objects with information on several movies. Use a combination of filter and map to return a new array of objects with only title and rating keys, but where imdbRating is greater than or equal to 8.0. Note that the rating values are saved as strings in the object and you may want to convert them into numbers to perform mathematical operations on them.
+
 // the global variable
 var watchList = [
                  {  
@@ -112,13 +119,13 @@ var watchList = [
                 }
 ];
 
-//Whats special about this function here is that the return value creates new properties
-//for the new Array it creates
+// This is an ES6 imporvement 
+//Notice how we encase the return props and values in braces and paranthesis
+//Remeber to use the string values of the props you wish to map put 
 
-//It uses e as the argument and the key strings as the key value ["Title"]
-//The filter function will only allow Imdb ratings that are greater than 8.0 to be returned
-var filteredList = watchList.map(function(e) {
-  return {title: e["Title"], rating: e["imdbRating"]}
-}).filter(e => e.rating >= 8);
+var filteredList = watchList.map((e) => ({title: e["Title"], rating: e["imdbRating"]}
+)).filter(e => e.rating > 8);
 
-console.log(filteredList); 
+// Add your code above this line
+
+console.log(filteredList);
