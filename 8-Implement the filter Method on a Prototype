@@ -1,24 +1,21 @@
 // the global Array
 var s = [23, 65, 98, 5];
 
-//Adding a custom filter function to the prototype
 Array.prototype.myFilter = function(callback){
+  var newArray = [];
+  
+  //This one is more es6 friendly
+  this.forEach((e) => {
+    console.log(e)
+   callback(e) ? newArray.push(e) : null
+    });
 
-//Create a new empty array
-var newArray = [];
-
-//Traverse through the array using the forEach method
-s.forEach(function(item, index){
-//If the callback parameter is true then push the current value into the new array
-if(callback(item)) {
-   newArray.push(item);
- };
-})
-//Return the new copy
   return newArray;
+
 };
 
-//Creates a variable from the s.myFilter function
 var new_s = s.myFilter(function(item){
   return item % 2 === 1;
 });
+
+console.log(new_s);
