@@ -14,6 +14,7 @@ Do not mutate the original array provided to the function.
 */
 
 //Here we have a standard function that returns indexes before 0 and before 3 which would be index 0 , 1 and 2
+
 function nonMutatingSplice(cities) {
   return cities.slice(0, 3);
 }
